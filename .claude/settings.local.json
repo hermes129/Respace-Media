@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk 'NR<=3 {print NR\": \"length\\($0\\)\" chars\"}' \"C:\\\\Users\\\\Ayan\\\\Desktop\\\\Milestoners HTML.txt\")",
+      "WebFetch(domain:blissagency.it)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(curl -s http://localhost:3000/index.html)"
+    ]
+  }
+}

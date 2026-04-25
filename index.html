@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en" class="lenis lenis-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Respace Media — Reclaim what's yours.</title>
+<meta name="description" content="A performance-focused creative agency. Brand, content, performance marketing and web — built as one system. Operating across EU, US and GCC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <nav class="header-nav">
+    <a class="brand" href="#">
+      <img src="images/respace-logo.png" alt="Respace" class="header-logo" />
+    </a>
+
+    <!-- Desktop links -->
+    <div class="header-desktop">
+      <a href="#what-we-do" class="header-link">What we do</a>
+      <a href="#how" class="header-link">How we work</a>
+      <a href="#services" class="header-link">Services</a>
+      <a href="#faq" class="header-link">FAQ</a>
+      <a href="#contact" class="header-btn header-btn--primary">Get in touch</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button class="header-menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg class="menu-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path class="menu-icon-path" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22" />
+        <path class="menu-icon-line" d="M7 16 27 16" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div class="header-mobile-overlay" id="mobile-overlay">
+    <div class="header-mobile-inner">
+      <div class="header-mobile-links">
+        <a href="#what-we-do" class="header-mobile-link">What we do</a>
+        <a href="#how" class="header-mobile-link">How we work</a>
+        <a href="#services" class="header-mobile-link">Services</a>
+        <a href="#faq" class="header-mobile-link">FAQ</a>
+      </div>
+      <div class="header-mobile-actions">
+        <a href="#contact" class="header-btn header-btn--outline header-btn--full">Get in touch →</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+
+  <!-- Particle Star Background -->
+  <canvas class="hero-stars" id="hero-stars" aria-hidden="true"></canvas>
+
+  <!-- Gooey Pixel Trail -->
+  <svg class="gooey-filter-svg" aria-hidden="true">
+    <defs>
+      <filter id="goo-filter">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+        <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+      </filter>
+    </defs>
+  </svg>
+  <div class="pixel-trail-wrap" style="filter: url(#goo-filter)" aria-hidden="true">
+    <div class="pixel-trail" id="pixel-trail"></div>
+  </div>
+
+
+  <div class="hero-quote">
+    <p class="hero-quote-text">Reclaim what's yours.</p>
+    <p class="hero-coords">EU · United States · GCC</p>
+  </div>
+
+  <div class="hero-partner">
+    <span class="hero-partner-label">Your organisation has earned its reputation.</span>
+    <span class="hero-partner-logo">Your digital presence should reflect that.</span>
+  </div>
+</section>
+
+<!-- CREDIBILITY BAR -->
+<div class="cred-bar" aria-label="Operating regions">
+  <span class="cred-label">Operating across</span>
+  <span class="cred-region">EU</span>
+  <span class="cred-sep">·</span>
+  <span class="cred-region">United States</span>
+  <span class="cred-sep">·</span>
+  <span class="cred-region">GCC</span>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-container" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Brand Strategy</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Visual Identity</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Content Production</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Performance Marketing</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Lead Generation</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Web Design</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Paid Social</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Paid Search</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Conversion Optimisation</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Creative Direction</span><span class="marquee-dot">●</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">Brand Strategy</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Visual Identity</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Content Production</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Performance Marketing</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Lead Generation</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Web Design</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Paid Social</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Paid Search</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Conversion Optimisation</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Creative Direction</span><span class="marquee-dot">●</span>
+  </div>
+</div>
+
+<!-- BENTO GRID -->
+<section class="bento-section" id="what-we-do">
+  <div class="bento-container">
+    
+    <!-- Row 1 -->
+    <div class="bento-row">
+      <!-- Card 1 -->
+      <div class="bento-card active" style="--bg-active: #7D39EB; --fg-active: #ffffff;">
+        <div class="bento-top">
+          <div class="bento-title-wrap">
+            <span class="bento-num">01</span>
+            <h2 class="bento-title"><span class="bento-title-line">The gap</span></h2>
+          </div>
+          <a href="#about" class="bento-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+        <div class="bento-bottom">
+          <div class="bento-content-stack">
+            <div class="bento-pills">
+              <span class="bento-pill">Accountability</span>
+              <span class="bento-pill">Results over output</span>
+              <span class="bento-pill">True partnership</span>
+              <span class="bento-pill">No excuses</span>
+            </div>
+            <div class="bento-paragraph">
+              <p>The work looked the part. The pitch was convincing. But the leads didn't come, the conversions didn't move. The problem isn't creative. It's accountability. We built Respace to fix that.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bento-card" style="--bg-active: #C6FF33; --fg-active: #000000;">
+        <div class="bento-top">
+          <div class="bento-title-wrap">
+            <span class="bento-num">02</span>
+            <h2 class="bento-title"><span class="bento-title-line">What we do</span></h2>
+          </div>
+          <a href="#services" class="bento-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+        <div class="bento-bottom">
+          <div class="bento-content-stack">
+            <div class="bento-pills">
+              <span class="bento-pill">Strategy</span>
+              <span class="bento-pill">Creative</span>
+              <span class="bento-pill">Performance</span>
+              <span class="bento-pill">Paid media</span>
+              <span class="bento-pill">Lead generation</span>
+              <span class="bento-pill">Web</span>
+            </div>
+            <div class="bento-paragraph">
+              <p>We handle the full picture, from brand and content through to paid media, lead generation, and web, integrating it so nothing operates in a silo. Creative informed by strategy. Performance informed by creative.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="bento-row">
+      <!-- Card 3 -->
+      <div class="bento-card" style="--bg-active: #ffffff; --fg-active: #000000;">
+        <div class="bento-top">
+          <div class="bento-title-wrap">
+            <span class="bento-num">03</span>
+            <h2 class="bento-title"><span class="bento-title-line">How we think</span></h2>
+          </div>
+          <a href="#how" class="bento-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+        <div class="bento-bottom">
+          <div class="bento-content-stack">
+            <div class="bento-pills">
+              <span class="bento-pill">Commercially driven</span>
+              <span class="bento-pill">Business first</span>
+              <span class="bento-pill">Selective clients</span>
+              <span class="bento-pill">Focused attention</span>
+            </div>
+            <div class="bento-paragraph">
+              <p>Every engagement starts with understanding your business, not your brief. We work with a deliberately small number of clients because focused attention produces sharper creative and stronger results than a production line ever will.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bento-card" style="--bg-active: #7D39EB; --fg-active: #ffffff;">
+        <div class="bento-top">
+          <div class="bento-title-wrap">
+            <span class="bento-num">04</span>
+            <h2 class="bento-title"><span class="bento-title-line">Who we are</span></h2>
+          </div>
+          <a href="#about" class="bento-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+        <div class="bento-bottom">
+          <div class="bento-content-stack">
+            <div class="bento-pills">
+              <span class="bento-pill">Accountable</span>
+              <span class="bento-pill">Trust & credibility</span>
+              <span class="bento-pill">Established organisations</span>
+              <span class="bento-pill">Honest partnership</span>
+            </div>
+            <div class="bento-paragraph">
+              <p>We work with established organisations in sectors where trust and credibility aren't optional — healthcare, legal, financial services, hospitality, and government. Our clients don't need an agency that impresses them. They need one that delivers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INDUSTRIES WE SERVE (Case Studies) -->
+<section class="cases">
+  <div class="cases-head cases-head-alt">
+    <h2>Industries We Serve</h2>
+    <p class="cases-intro">Most of our clients are in industries where confidentiality is contractual — healthcare, legal, finance, government. They trust us partly because we take that seriously. What we can tell you: the strategy was sound, the creative was sharp, and the numbers moved. Below are five anonymised accounts of engagements that represent the kind of work we do and the outcomes we deliver.</p>
+  </div>
+
+  <div class="img-accordion">
+    <!-- Card 1 -->
+    <div class="ia-item active">
+      <div class="ia-bg" style="background-image:url('images/healthcare_bw.png');"></div>
+      <div class="ia-overlay">
+        <h3 class="ia-title">Healthcare / GCC</h3>
+        <div class="ia-blurb">
+          <div class="cs-text-block"><strong>The situation:</strong> A multi-site hospital group with strong clinical reputation and almost no digital presence. Patients were consistently finding and choosing competitors first — not because the competitors were better, but because they were more visible.</div>
+          <div class="cs-text-block"><strong>What we did:</strong> Brand audit, digital positioning strategy, full website redesign, and a paid media programme targeting patients, families, and referring physicians across three channels simultaneously.</div>
+          <div class="cs-text-block"><strong>What changed:</strong> Online appointment requests began arriving through channels that hadn't generated a single lead before the engagement. The clinical team reported for the first time that their digital presence matched the standard of care they were delivering.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="ia-item">
+      <div class="ia-bg" style="background-image:url('images/legal_bw.png');"></div>
+      <div class="ia-overlay">
+        <h3 class="ia-title">Legal Services / EU</h3>
+        <div class="ia-blurb">
+          <div class="cs-text-block"><strong>The situation:</strong> A mid-size commercial law firm with a strong existing client base and no inbound pipeline. Their digital presence hadn't been touched in years. New commercial clients were going to competitors who looked more credible online — regardless of actual capability.</div>
+          <div class="cs-text-block"><strong>What we did:</strong> Repositioning strategy, visual identity refresh, new website, and a LinkedIn-led content programme designed to build genuine thought leadership rather than broadcast.</div>
+          <div class="cs-text-block"><strong>What changed:</strong> The firm received inbound enquiries from commercial clients for the first time. Partners reported a change in how peers in the legal market perceived the practice — both in conversations and in the quality of referrals coming in.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="ia-item">
+      <div class="ia-bg" style="background-image:url('images/finance_bw.png');"></div>
+      <div class="ia-overlay">
+        <h3 class="ia-title">Finance / Global</h3>
+        <div class="ia-blurb">
+          <div class="cs-text-block"><strong>The situation:</strong> A traditional wealth management firm struggling to attract next-generation high-net-worth individuals. Their legacy brand felt disconnected from modern digital expectations.</div>
+          <div class="cs-text-block"><strong>What we did:</strong> Strategic rebranding, digital experience overhaul, and a targeted content marketing strategy focusing on transparency and modern financial agility.</div>
+          <div class="cs-text-block"><strong>What changed:</strong> The firm successfully lowered the average age of new clients by 15 years while maintaining complete trust and continuity with their legacy client base.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="ia-item">
+      <div class="ia-bg" style="background-image:url('images/insurance_natural.png');"></div>
+      <div class="ia-overlay">
+        <h3 class="ia-title">Insurance / EU &amp; GCC</h3>
+        <div class="ia-blurb">
+          <div class="cs-text-block"><strong>The situation:</strong> A regional insurance provider competing against household names with significantly larger media budgets. Strong product, indistinguishable brand. Their communications looked and sounded like every other provider in the category.</div>
+          <div class="cs-text-block"><strong>What we did:</strong> Brand differentiation strategy, new creative identity, performance marketing across Meta and Google, and a landing page system built specifically for lead capture and qualification.</div>
+          <div class="cs-text-block"><strong>What changed:</strong> The volume and quality of inbound leads improved meaningfully within the first two months. More importantly, the brand began to develop a recognisable presence in its regional market.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="ia-item">
+      <div class="ia-bg" style="background-image:url('images/hospitality_natural.png');"></div>
+      <div class="ia-overlay">
+        <h3 class="ia-title">Hospitality / GCC</h3>
+        <div class="ia-blurb">
+          <div class="cs-text-block"><strong>The situation:</strong> A boutique hotel group with exceptional properties and an inconsistent content strategy. Their social presence didn't reflect the quality of the experience. Their website was receiving healthy organic traffic that wasn't converting.</div>
+          <div class="cs-text-block"><strong>What we did:</strong> Content strategy, social media management, photography art direction, and a targeted UX review of the booking flow with specific conversion improvements.</div>
+          <div class="cs-text-block"><strong>What changed:</strong> Direct bookings increased. The properties developed a distinct visual identity across their social channels that differentiated them from chain competitors.</div>
+        </div>
+      </div>
+  </div>
+</section>
+
+
+<!-- HOW WE WORK (bsys 3-col) -->
+<section class="bsys-wrap" id="how" aria-label="How we work">
+  <div class="bsys-inner">
+    <p class="bsys-kicker">How we work</p>
+    <h2 class="bsys-h2">Strategy first. No exceptions.</h2>
+    <p class="bsys-sublede">We don't start with a mood board. We start with your business — your market, your audience, your blockers, and your definition of success. The creative comes from that understanding, not before it.</p>
+
+    <div class="bsys-cols">
+      <article class="bsys-col bsys-a" aria-expanded="false">
+        <div class="bsys-col-top" role="button" tabindex="0">
+          <p class="bsys-col-num"><span class="bsys-dot"></span>01</p>
+          <p class="bsys-col-name">Understand</p>
+          <span class="bsys-col-tag">Before a single asset is made</span>
+          <span class="bsys-toggle-icon" aria-hidden="true"></span>
+        </div>
+        <div class="bsys-col-body">
+          <p>Deep-dive into your organisation before a single asset is made. Your market, your audience, your goals. No assumptions, no templated discovery deck.</p>
+          <ul class="bsys-services">
+            <li>Stakeholder interviews</li>
+            <li>Market &amp; competitor audit</li>
+            <li>Audience mapping</li>
+            <li>Success definition</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="bsys-col bsys-g" aria-expanded="false">
+        <div class="bsys-col-top" role="button" tabindex="0">
+          <p class="bsys-col-num"><span class="bsys-dot"></span>02</p>
+          <p class="bsys-col-name">Build</p>
+          <span class="bsys-col-tag">Strategy, creative and systems together</span>
+          <span class="bsys-toggle-icon" aria-hidden="true"></span>
+        </div>
+        <div class="bsys-col-body">
+          <p>Strategy, creative, and systems developed together — not handed off between departments. Everything connects because it was built to.</p>
+          <ul class="bsys-services">
+            <li>Positioning &amp; brand</li>
+            <li>Creative &amp; content</li>
+            <li>Funnel architecture</li>
+            <li>Web &amp; digital systems</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="bsys-col bsys-o" aria-expanded="false">
+        <div class="bsys-col-top" role="button" tabindex="0">
+          <p class="bsys-col-num"><span class="bsys-dot"></span>03</p>
+          <p class="bsys-col-name">Perform</p>
+          <span class="bsys-col-tag">Delivery isn't the finish line</span>
+          <span class="bsys-toggle-icon" aria-hidden="true"></span>
+        </div>
+        <div class="bsys-col-body">
+          <p>We launch, we watch, we adjust. Delivery isn't the finish line — results are. Reporting is straight, not dressed up.</p>
+          <ul class="bsys-services">
+            <li>Paid media management</li>
+            <li>Conversion optimisation</li>
+            <li>Performance reporting</li>
+            <li>Iteration &amp; scale</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES (accordion) -->
+<section class="ops-wrap" id="services" aria-label="Services">
+
+
+  <div class="ops-section-header">
+    <h3 class="ops-section-title">Five <strong>capabilities</strong>. Built as one system.</h3>
+    <span class="ops-section-hint">Click to expand</span>
+  </div>
+
+  <div class="ops-accordion">
+    <div class="ops-item open">
+      <button class="ops-trigger" aria-expanded="true">
+        <span class="ops-trigger-num">01</span>
+        <h4 class="ops-trigger-name">Brand Strategy &amp; Identity</h4>
+        <span class="ops-trigger-icon">+</span>
+      </button>
+      <div class="ops-body">
+        <div class="ops-body-inner">
+          <p>Your brand is a business asset, not a design exercise. We build identity systems that are visually sharp and strategically grounded — systems that hold up in a boardroom presentation and a social ad at the same time.</p>
+          <p><strong>Covers:</strong> Brand strategy · Visual identity · Logo systems · Creative direction · Brand guidelines · Naming · Positioning</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ops-item">
+      <button class="ops-trigger" aria-expanded="false">
+        <span class="ops-trigger-num">02</span>
+        <h4 class="ops-trigger-name">Content &amp; Production</h4>
+        <span class="ops-trigger-icon">+</span>
+      </button>
+      <div class="ops-body">
+        <div class="ops-body-inner">
+          <p>Content that exists is not the same as content that performs. We produce it built around your audience, your platform, and your commercial objectives — managing concept, scripting, production, and delivery. Every piece has a reason to exist.</p>
+          <p><strong>Covers:</strong> Content strategy · Social content · Video production · Photography · Copywriting · Campaign content · Editorial</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ops-item">
+      <button class="ops-trigger" aria-expanded="false">
+        <span class="ops-trigger-num">03</span>
+        <h4 class="ops-trigger-name">Performance Marketing &amp; Lead Generation</h4>
+        <span class="ops-trigger-icon">+</span>
+      </button>
+      <div class="ops-body">
+        <div class="ops-body-inner">
+          <p>We run paid media and we build the creative that makes it convert. This isn't an add-on service — it's central to how we think. Campaigns across Meta, Google, and programmatic, plus the architecture behind them: landing pages, funnels, and lead generation systems designed to turn traffic into pipeline.</p>
+          <p><strong>Covers:</strong> Paid social · Paid search · Programmatic · Performance creative · Funnel architecture · Landing pages · Conversion optimisation · Lead generation systems</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ops-item">
+      <button class="ops-trigger" aria-expanded="false">
+        <span class="ops-trigger-num">04</span>
+        <h4 class="ops-trigger-name">Social Media Management</h4>
+        <span class="ops-trigger-icon">+</span>
+      </button>
+      <div class="ops-body">
+        <div class="ops-body-inner">
+          <p>Your social presence is a live representation of your organisation. We manage it with the same rigour we apply to everything else — content calendars, community management, performance tracking, and adjustments based on what the data shows. We don't post to fill a schedule.</p>
+          <p><strong>Covers:</strong> Platform strategy · Content calendars · Community management · Social copywriting · Performance reporting · Channel growth</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ops-item">
+      <button class="ops-trigger" aria-expanded="false">
+        <span class="ops-trigger-num">05</span>
+        <h4 class="ops-trigger-name">Web Design &amp; Digital Experiences</h4>
+        <span class="ops-trigger-icon">+</span>
+      </button>
+      <div class="ops-body">
+        <div class="ops-body-inner">
+          <p>Your website is the most visited asset your organisation owns. It should work harder than it looks. We design and build digital experiences that are fast, conversion-focused, and visually credible — full rebuilds, campaign landing pages, or broader systems that connect brand to customer journey.</p>
+          <p><strong>Covers:</strong> Website design · Development · Landing pages · UX/UI · Digital systems · CMS integration</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ops-item">
+      <button class="ops-trigger" aria-expanded="false">
+        <span class="ops-trigger-num">06</span>
+        <h4 class="ops-trigger-name">How We Engage</h4>
+        <span class="ops-trigger-icon">+</span>
+      </button>
+      <div class="ops-body">
+        <div class="ops-body-inner">
+          <p>Project-based, retainer, or a combination — we structure engagements around what makes sense for your organisation. Every new relationship starts with a discovery session. We won't propose anything until we understand what you actually need.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NO FULL PORTFOLIO -->
+<section class="why-portfolio">
+  <div class="wp-layout">
+    <div class="wp-left">
+      <h2 class="wp-title">Why you won't see a<br>full portfolio here</h2>
+      <div class="wp-arrow">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <path d="M7 17h10V7M17 17L7 7" />
+        </svg>
+      </div>
+      <div class="wp-content">
+        <p>We don't believe in showing everyone the same thing. A campaign built for a GCC hospital tells you nothing about what we'd do for a European law firm. A hotel group's content strategy won't help you understand how we'd approach your insurance company's lead generation.</p>
+        <p>So when a serious organisation reaches out to us, we don't send a portfolio link. We build a tailored capabilities preview specific to their sector and challenges. It's more work on our end. It's also the only approach that's actually useful to you.</p>
+      </div>
+      <a href="#cta" class="wp-btn">Request a tailored preview <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 7h10v10M17 7L7 17" /></svg></span></a>
+    </div>
+
+    <div class="wp-right">
+      <div class="wp-grid">
+        <div class="wp-card card-1">
+          <span class="wp-num">01</span>
+          <h4>Confidential</h4>
+        </div>
+        <div class="wp-card card-2">
+          <span class="wp-num">02</span>
+          <h4>Tailored</h4>
+        </div>
+        <div class="wp-card card-3">
+          <span class="wp-num">03</span>
+          <h4>Relevant</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA BANNER -->
+<section class="service-banner" id="cta">
+  <div class="service-banner-video" aria-hidden="true">
+    <video autoplay muted playsinline loop>
+      <source src="https://video.blissagency.it/banner-audit-video.mp4" type="video/mp4">
+    </video>
+    <div class="service-banner-scrim"></div>
+  </div>
+  <div class="service-banner-inner">
+    <p class="cta-kicker">Ready when you are</p>
+    <h2>If you're ready to see what we'd build for you — reach out.</h2>
+    <p class="cta-sub">We'll put together a tailored preview based on your industry and your goals. No generic slides. No wasted time.</p>
+    <div class="service-tiles">
+      <a href="#contact" class="service-tile">
+        <span class="service-tile-num">01</span>
+        <h3>Brand &amp; Creative</h3>
+        <span class="service-tile-arrow">↗</span>
+      </a>
+      <a href="#contact" class="service-tile">
+        <span class="service-tile-num">02</span>
+        <h3>Strategy &amp; Content</h3>
+        <span class="service-tile-arrow">↗</span>
+      </a>
+      <a href="#contact" class="service-tile">
+        <span class="service-tile-num">03</span>
+        <h3>Performance &amp; Lead Gen</h3>
+        <span class="service-tile-arrow">↗</span>
+      </a>
+      <a href="#contact" class="service-tile">
+        <span class="service-tile-num">04</span>
+        <h3>Web &amp; Digital</h3>
+        <span class="service-tile-arrow">↗</span>
+      </a>
+    </div>
+    <a class="cta-button" href="#modal" data-modal="true">Book a Call / Enquire →</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <h2>FAQ — methodology &amp; engagement</h2>
+  <div class="faq-list">
+    <details><summary>Why don't you publish a full portfolio?</summary><p>Most of our clients are in industries where confidentiality is contractual — healthcare, legal, finance, government. We take that seriously. When a serious organisation reaches out, we build a tailored capabilities preview specific to their sector and challenges, instead of sending a generic deck.</p></details>
+    <details><summary>What kind of organisations do you work with?</summary><p>Established organisations in sectors where trust and credibility aren't optional — healthcare, legal, financial services, hospitality, insurance, and government-adjacent industries. Our clients don't need an agency that impresses them. They need one that delivers.</p></details>
+    <details><summary>How do you structure engagements?</summary><p>Project-based, retainer, or a combination — we structure engagements around what makes sense for your organisation. Every new relationship starts with a discovery session. We won't propose anything until we understand what you actually need.</p></details>
+    <details><summary>Where do you operate?</summary><p>We work with clients across Europe, the United States, and the Gulf Cooperation Council. Our team is distributed and built to understand the specific digital landscape, cultural context, and regulatory environment of each territory we operate in.</p></details>
+    <details><summary>What makes Respace different from other agencies?</summary><p>Most agencies are accountable for delivery, not performance. We tie our success to yours. Strategy, creative and performance are built as one system — not handed off between departments — and we work with a deliberately small number of clients so the work stays focused.</p></details>
+    <details><summary>What does the first conversation look like?</summary><p>Honest and quick. We'll ask about your business and your goals, tell you whether we think there's a fit, and if there is — show you exactly what we'd do. No pitch, no pressure.</p></details>
+    <details><summary>How do you measure performance?</summary><p>By the metrics that matter to your business — pipeline, qualified enquiries, bookings, revenue. Not by impressions, reach, or any other vanity number that looks good in a deck and means nothing in a board meeting.</p></details>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pf-cta" id="contact">
+
+  <!-- Floating icons (left side) -->
+  <div class="pf-float pf-float--1" style="left:8%;top:15%;--rot:-12deg;--delay:0.1s">
+    <div class="pf-icon-card" style="background:var(--fg)">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="#000"><path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zm-9 9h7v7H4v-7zm9 0h7v7h-7v-7z"/></svg>
+    </div>
+  </div>
+  <div class="pf-float pf-float--2" style="left:22%;top:5%;--rot:8deg;--delay:0.2s">
+    <div class="pf-icon-card" style="background:var(--fg)"><span style="font-size:18px;font-weight:700;color:#000">R</span></div>
+  </div>
+  <div class="pf-float pf-float--3" style="left:5%;top:55%;--rot:0deg;--delay:0.3s">
+    <div class="pf-icon-card" style="background:var(--accent)">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    </div>
+  </div>
+  <div class="pf-float pf-float--4" style="left:18%;top:70%;--rot:-5deg;--delay:0.4s">
+    <div class="pf-icon-card" style="background:linear-gradient(135deg,var(--accent),var(--accent-2))">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><polygon points="12,2 15,8 22,9 17,14 18,21 12,17 6,21 7,14 2,9 9,8"/></svg>
+    </div>
+  </div>
+
+  <!-- Floating icons (right side) -->
+  <div class="pf-float pf-float--5" style="right:20%;top:8%;--rot:10deg;--delay:0.15s">
+    <div class="pf-icon-card" style="background:var(--fg)">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="#000"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+    </div>
+  </div>
+  <div class="pf-float pf-float--6" style="right:8%;top:20%;--rot:-8deg;--delay:0.25s">
+    <div class="pf-icon-card" style="background:linear-gradient(135deg,var(--accent-2),var(--accent))">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>
+    </div>
+  </div>
+  <div class="pf-float pf-float--7" style="right:3%;top:45%;--rot:5deg;--delay:0.35s">
+    <div class="pf-icon-card" style="background:var(--accent)">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/></svg>
+    </div>
+  </div>
+  <div class="pf-float pf-float--8" style="right:22%;top:65%;--rot:-3deg;--delay:0.45s">
+    <div class="pf-icon-card" style="background:var(--fg)">
+      <svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="10" fill="var(--accent)"/><path d="M12 6v6l4 2" stroke="#fff" stroke-width="2" fill="none"/></svg>
+    </div>
+  </div>
+  <div class="pf-float pf-float--9" style="right:5%;top:75%;--rot:12deg;--delay:0.5s">
+    <div class="pf-icon-card" style="background:var(--accent-2)">
+      <svg viewBox="0 0 24 24" width="24" height="24"><rect x="3" y="3" width="18" height="18" rx="2" fill="currentColor"/><path d="M9 9h6v6H9z" fill="#000"/></svg>
+    </div>
+  </div>
+
+  <!-- Center content -->
+  <div class="pf-cta-content">
+    <!-- Badge -->
+    <div class="pf-badge">
+      <span>Selective by design</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.5 3.4 3.7.5-2.7 2.6.6 3.7L12 11.5 8.9 13.2l.6-3.7L6.8 6.9l3.7-.5L12 3z"/><path d="M5 19l1.5-3.4"/><path d="M19 19l-1.5-3.4"/></svg>
+    </div>
+
+    <!-- Title -->
+    <h2 class="pf-title">Ready to reclaim<br>your growth?</h2>
+
+    <!-- Subtitle -->
+    <p class="pf-subtitle">Performance-focused creative for organisations that refuse to blend in.</p>
+
+    <!-- Buttons -->
+    <div class="pf-buttons">
+      <a href="#modal" data-modal="true" class="pf-btn pf-btn--primary">
+        Get in touch
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="mailto:hello@respacemedia.com" class="pf-btn pf-btn--secondary">Or email us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <img src="images/Logo (2).png" alt="Respace" class="footer-brand-logo" />
+    <p class="footer-claim">A performance-focused creative agency. Selective by design.</p>
+    <div class="footer-contact">
+      <h5>Contact</h5>
+      <a href="mailto:hello@respacemedia.com">hello@respacemedia.com</a>
+      <p>EU · United States · GCC</p>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <span>© 2026 Respace Media</span>
+    <span>Reclaim what's yours.</span>
+  </div>
+</footer>
+
+<!-- CONTACT MODAL -->
+<div class="modal-overlay" id="contact-modal">
+  <div class="modal-content">
+    <button class="modal-close" id="close-modal">&times;</button>
+    <div class="modal-header">
+      <h2>Let's talk about your growth.</h2>
+      <p>Fill out the form below and we'll get back to you with a tailored capabilities preview.</p>
+    </div>
+    <form class="contact-form" id="book-call-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="1d29dbc6-e8a3-415a-8458-a1f4f1bddb2f">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="John Doe">
+      </div>
+      <div class="form-group">
+        <label for="email">Work Email</label>
+        <input type="email" id="email" name="email" required placeholder="john@company.com">
+      </div>
+      <div class="form-group">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" required placeholder="Company Name">
+      </div>
+      <div class="form-group">
+        <label for="message">How can we help?</label>
+        <textarea id="message" name="message" rows="4" placeholder="Briefly describe your goals..."></textarea>
+      </div>
+      <button type="submit" class="form-submit-btn">Book a Call / Enquire <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </form>
+  </div>
+</div>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 15l-6-6-6 6"/>
+  </svg>
+</button>
+
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
