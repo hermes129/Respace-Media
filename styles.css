@@ -2528,4 +2528,9 @@ h5 {
     width: 42px;
     height: 42px;
   }
+
+}
+
+.header-mobile-overlay {
+  position: inherit !important;
 }
