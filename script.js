@@ -262,8 +262,6 @@ document.querySelectorAll('.bento-card').forEach(card => {
   const canvas = document.getElementById('hero-stars');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  const hero = canvas.closest('.hero');
-  if (!hero) return;
 
   let stars = [];
   const STAR_COUNT = 120;
@@ -271,9 +269,8 @@ document.querySelectorAll('.bento-card').forEach(card => {
   let w = 0, h = 0;
 
   function resize() {
-    const rect = hero.getBoundingClientRect();
-    w = rect.width;
-    h = rect.height;
+    w = window.innerWidth;
+    h = window.innerHeight;
     canvas.width = w * window.devicePixelRatio;
     canvas.height = h * window.devicePixelRatio;
     canvas.style.width = w + 'px';
@@ -361,17 +358,7 @@ document.querySelectorAll('.bento-card').forEach(card => {
     animId = requestAnimationFrame(draw);
   }
 
-  // Pause when not visible
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        if (!animId) animId = requestAnimationFrame(draw);
-      } else {
-        if (animId) { cancelAnimationFrame(animId); animId = null; }
-      }
-    });
-  }, { threshold: 0 });
-  observer.observe(hero);
+  // Animation is now sitewide and always visible
 
   // Resize handler
   let resizeTimer2;
