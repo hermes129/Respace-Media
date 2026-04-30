@@ -31,7 +31,12 @@ const heroTl = gsap.timeline({
   }
 });
 
-heroTl.from(".hero-word", { 
+heroTl.to(".scroll-indicator", {
+  opacity: 0,
+  duration: 0.1, // Fade out quickly as soon as they start scrolling
+  ease: "none"
+}, 0)
+.from(".hero-word", { 
   y: -30, 
   opacity: 0, 
   stagger: 0.15, 
