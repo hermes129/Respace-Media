@@ -20,17 +20,40 @@ gsap.ticker.add((time) => {
 });
 gsap.ticker.lagSmoothing(0);
 
-// ===== Hero Intro Animation =====
-gsap.from(".hero-word", { 
+// ===== Hero Scroll Video-Like Effect =====
+const heroTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".hero",
+    start: "top top",
+    end: "+=1200", // Total scroll distance to complete the animation
+    pin: true,
+    scrub: 1
+  }
+});
+
+heroTl.from(".hero-word", { 
   y: -30, 
   opacity: 0, 
-  duration: 1, 
-  stagger: 0.1, 
-  ease: "power3.out", 
-  delay: 0.1 
+  stagger: 0.15, 
+  ease: "none" 
+})
+.from(".hero-subheading", { 
+  y: 20, 
+  opacity: 0, 
+  ease: "none" 
+}, "-=0.3");
+
+gsap.from(".cred-bar", {
+  scrollTrigger: {
+    trigger: ".cred-bar",
+    start: "top 95%",
+    once: true
+  },
+  y: 15,
+  opacity: 0,
+  duration: 1,
+  ease: "power2.out"
 });
-gsap.from(".hero-subheading", { y: 20, opacity: 0, duration: 1, ease: "power3.out", delay: 0.3 });
-gsap.from(".cred-bar", { y: 15, opacity: 0, duration: 1, ease: "power2.out", delay: 0.5 });
 
 // ===== Header: scroll shrink =====
 (function() {
