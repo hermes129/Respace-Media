@@ -8,6 +8,44 @@ const lenis = new Lenis({
   touchMultiplier: 2,
 });
 
+// ===== Preloader =====
+lenis.stop(); // Stop scrolling while preloader is active
+
+const counterObj = { val: 0 };
+const counterEl = document.getElementById('preloader-counter');
+const preloaderEl = document.getElementById('preloader');
+
+if (counterEl && preloaderEl) {
+  gsap.to(counterEl, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" });
+
+  gsap.to(counterObj, {
+    val: 100,
+    duration: 2.2,
+    ease: "power3.inOut",
+    onUpdate: () => {
+      counterEl.innerText = Math.floor(counterObj.val) + "%";
+    },
+    onComplete: () => {
+      gsap.to(counterEl, {
+        y: -50,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.in"
+      });
+      gsap.to(preloaderEl, {
+        yPercent: -100,
+        duration: 1,
+        ease: "power4.inOut",
+        delay: 0.4,
+        onComplete: () => {
+          lenis.start(); // Re-enable scrolling
+        }
+      });
+    }
+  });
+}
+
+
 // Global scroll position for other modules
 let lenisScroll = 0;
 lenis.on('scroll', (e) => {
