@@ -555,7 +555,44 @@ h5 {
   text-transform: none
 }
 
+/* ===== Gooey Pixel Trail ===== */
+.gooey-filter-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
 
+.pixel-trail-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.pixel-trail {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  pointer-events: auto;
+}
+
+.pixel-dot {
+  background: rgba(255, 255, 255, 0);
+  transition: none;
+  flex-shrink: 0;
+}
+
+@media (max-width: 786px) {
+  .pixel-trail-wrap, .gooey-filter-svg {
+    display: none !important;
+  }
+}
 
 /* ===== Marquee ===== */
 .marquee-container {

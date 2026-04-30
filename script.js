@@ -222,6 +222,192 @@ document.querySelectorAll('.bento-card').forEach(card => {
   card.tabIndex = 0;
 });
 
+// ===== Gooey Pixel Trail =====
+(function() {
+  const trail = document.getElementById('pixel-trail');
+  if (!trail) return;
+
+  const PIXEL_SIZE = 32;
+  const FADE_DURATION = 0;     // instant appear
+  const FADE_DELAY    = 1000;  // ms before fade-out starts
+
+  let cols = 0;
+  let rows = 0;
+  let pixels = [];
+  let heroRect = null;
+
+  function buildGrid() {
+    if (window.innerWidth <= 786) {
+      trail.innerHTML = '';
+      pixels = [];
+      return; // Do not build on mobile
+    }
+    const hero = trail.closest('.hero');
+    if (!hero) return;
+    heroRect = hero.getBoundingClientRect();
+
+    cols = Math.ceil(heroRect.width  / PIXEL_SIZE);
+    rows = Math.ceil(heroRect.height / PIXEL_SIZE);
+
+    // Clear existing pixels
+    trail.innerHTML = '';
+    pixels = [];
+
+    // Set container to match the grid exactly
+    trail.style.width  = cols * PIXEL_SIZE + 'px';
+    trail.style.height = rows * PIXEL_SIZE + 'px';
+
+    // Create pixel elements using a document fragment for performance
+    const frag = document.createDocumentFragment();
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const dot = document.createElement('div');
+        dot.className = 'pixel-dot';
+        dot.style.width  = PIXEL_SIZE + 'px';
+        dot.style.height = PIXEL_SIZE + 'px';
+        dot._fadeTimer = null;
+        frag.appendChild(dot);
+        pixels.push(dot);
+      }
+    }
+    trail.appendChild(frag);
+  }
+
+  function activatePixel(x, y) {
+    if (window.innerWidth <= 786) return;
+    if (x < 0 || y < 0 || x >= cols || y >= rows) return;
+    const idx = y * cols + x;
+    const dot = pixels[idx];
+    if (!dot) return;
+
+    // Clear any pending fade
+    if (dot._fadeTimer) {
+      clearTimeout(dot._fadeTimer);
+      dot._fadeTimer = null;
+    }
+
+    // Show pixel instantly
+    dot.style.transition = 'none';
+    dot.style.background = 'rgba(125,57,235,1)';
+
+    // Schedule fade-out
+    dot._fadeTimer = setTimeout(() => {
+      dot.style.transition = 'background 1.2s ease';
+      dot.style.background = 'rgba(125,57,235,0)';
+      dot._fadeTimer = null;
+    }, FADE_DELAY);
+  }
+
+  // Throttle mouse tracking with rAF
+  let ticking = false;
+  let lastX = null;
+  let lastY = null;
+
+  function handleMouseMove(e) {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      if (!heroRect) {
+        ticking = false;
+        return;
+      }
+      const x = Math.floor((e.clientX - heroRect.left) / PIXEL_SIZE);
+      const y = Math.floor((e.clientY - heroRect.top)  / PIXEL_SIZE);
+      
+      if (lastX !== null && lastY !== null) {
+        // Bresenham's line algorithm to interpolate between last and current point
+        let x0 = lastX;
+        let y0 = lastY;
+        let dx = Math.abs(x - x0);
+        let dy = Math.abs(y - y0);
+        let sx = (x0 < x) ? 1 : -1;
+        let sy = (y0 < y) ? 1 : -1;
+        let err = dx - dy;
+        
+        while (true) {
+          activatePixel(x0, y0);
+          if (x0 === x && y0 === y) break;
+          let e2 = 2 * err;
+          if (e2 > -dy) { err -= dy; x0 += sx; }
+          if (e2 < dx) { err += dx; y0 += sy; }
+        }
+      } else {
+        activatePixel(x, y);
+      }
+      
+      lastX = x;
+      lastY = y;
+      ticking = false;
+    });
+  }
+
+  function handleMouseLeave() {
+    lastX = null;
+    lastY = null;
+  }
+
+  // Touch support (only active if > 786px, like tablets)
+  function handleTouchMove(e) {
+    if (window.innerWidth <= 786) return;
+    const touch = e.touches[0];
+    if (!touch || !heroRect) return;
+    const x = Math.floor((touch.clientX - heroRect.left) / PIXEL_SIZE);
+    const y = Math.floor((touch.clientY - heroRect.top)  / PIXEL_SIZE);
+    
+    if (lastX !== null && lastY !== null) {
+      let x0 = lastX;
+      let y0 = lastY;
+      let dx = Math.abs(x - x0);
+      let dy = Math.abs(y - y0);
+      let sx = (x0 < x) ? 1 : -1;
+      let sy = (y0 < y) ? 1 : -1;
+      let err = dx - dy;
+      
+      while (true) {
+        activatePixel(x0, y0);
+        if (x0 === x && y0 === y) break;
+        let e2 = 2 * err;
+        if (e2 > -dy) { err -= dy; x0 += sx; }
+        if (e2 < dx) { err += dx; y0 += sy; }
+      }
+    } else {
+      activatePixel(x, y);
+    }
+    
+    lastX = x;
+    lastY = y;
+  }
+
+  function handleTouchEnd() {
+    lastX = null;
+    lastY = null;
+  }
+
+  // Rebuild on resize (debounced)
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(buildGrid, 250);
+  });
+
+  // Update heroRect on scroll (for sticky header offset etc.)
+  lenis.on('scroll', () => {
+    const hero = trail.closest('.hero');
+    if (hero) heroRect = hero.getBoundingClientRect();
+  });
+
+  // Attach events to the hero section
+  const heroSection = trail.closest('.hero');
+  if (heroSection) {
+    heroSection.addEventListener('mousemove', handleMouseMove);
+    heroSection.addEventListener('mouseleave', handleMouseLeave);
+    heroSection.addEventListener('touchmove', handleTouchMove, { passive: true });
+    heroSection.addEventListener('touchend', handleTouchEnd);
+  }
+
+  // Initial build
+  buildGrid();
+})();
 
 // ===== Particle Star Background (with scroll parallax) =====
 (function() {

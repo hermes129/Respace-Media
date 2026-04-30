@@ -62,9 +62,19 @@
 <!-- HERO -->
 <section class="hero">
 
-
-
-
+  <!-- Gooey Pixel Trail -->
+  <svg class="gooey-filter-svg" aria-hidden="true">
+    <defs>
+      <filter id="goo-filter">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+        <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+      </filter>
+    </defs>
+  </svg>
+  <div class="pixel-trail-wrap" style="filter: url(#goo-filter)" aria-hidden="true">
+    <div class="pixel-trail" id="pixel-trail"></div>
+  </div>
 
   <div class="hero-quote">
     <h1 class="hero-quote-text">
