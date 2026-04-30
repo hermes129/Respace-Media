@@ -429,6 +429,10 @@ h5 {
   margin: 0;
 }
 
+.hero-word {
+  display: inline-block;
+}
+
 .hero-brand-wordmark {
   font-size: 32px;
   font-weight: 700;

@@ -12,13 +12,25 @@ const lenis = new Lenis({
 let lenisScroll = 0;
 lenis.on('scroll', (e) => {
   lenisScroll = e.scroll;
+  ScrollTrigger.update();
 });
 
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+gsap.ticker.lagSmoothing(0);
+
+// ===== Hero Intro Animation =====
+gsap.from(".hero-word", { 
+  y: -30, 
+  opacity: 0, 
+  duration: 1, 
+  stagger: 0.1, 
+  ease: "power3.out", 
+  delay: 0.1 
+});
+gsap.from(".hero-subheading", { y: 20, opacity: 0, duration: 1, ease: "power3.out", delay: 0.3 });
+gsap.from(".cred-bar", { y: 15, opacity: 0, duration: 1, ease: "power2.out", delay: 0.5 });
 
 // ===== Header: scroll shrink =====
 (function() {
@@ -104,25 +116,32 @@ document.querySelectorAll('.img-accordion').forEach(group => {
   });
 });
 
-// ===== Reveal on scroll =====
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('revealed');
-      io.unobserve(e.target);
-    }
+// ===== GSAP Reveal on scroll =====
+gsap.utils.toArray('section:not(.hero), .marquee-container, .bsys-col, .ops-item, .service-tile, .cs-card, .pf-cta-content').forEach((el) => {
+  gsap.from(el, {
+    scrollTrigger: {
+      trigger: el,
+      start: "top 85%",
+      once: true
+    },
+    y: 30,
+    opacity: 0,
+    duration: 0.8,
+    ease: "power2.out"
   });
-}, { threshold: 0.08 });
-revealEls.forEach(el => io.observe(el));
+});
 
-// Auto-tag sections/elements for reveal
-document.querySelectorAll(
-  'section:not(.hero), .marquee-container, .framework-cell, .bsys-col, .ops-item, .cert-card, .blog-card, .press-tile, .service-tile, .cs-card, .cred-bar'
-).forEach((el, i) => {
-  el.classList.add('reveal');
-  el.style.transitionDelay = `${(i % 4) * 0.06}s`;
-  io.observe(el);
+gsap.from(".bento-card", {
+  scrollTrigger: {
+    trigger: ".bento-section",
+    start: "top 80%",
+    once: true
+  },
+  y: 30,
+  opacity: 0,
+  duration: 0.8,
+  stagger: 0.15,
+  ease: "power2.out"
 });
 
 // ===== Bento Grid interaction =====
@@ -296,10 +315,9 @@ document.querySelectorAll('.bento-card').forEach(card => {
     }
   }
 
-  let animId;
-  function draw(t) {
+  function draw() {
     ctx.clearRect(0, 0, w, h);
-    const time = t * 0.001;
+    const time = gsap.ticker.time;
     const scrollY = lenisScroll; // read from global Lenis scroll position
 
     for (let i = 0; i < stars.length; i++) {
@@ -354,11 +372,7 @@ document.querySelectorAll('.bento-card').forEach(card => {
         ctx.fill();
       }
     }
-
-    animId = requestAnimationFrame(draw);
   }
-
-  // Animation is now sitewide and always visible
 
   // Resize handler
   let resizeTimer2;
@@ -373,7 +387,7 @@ document.querySelectorAll('.bento-card').forEach(card => {
   // Init
   resize();
   createStars();
-  animId = requestAnimationFrame(draw);
+  gsap.ticker.add(draw);
 })();
 
 // ===== Back to Top Button =====
