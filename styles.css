@@ -589,7 +589,9 @@ h5 {
 }
 
 @media (max-width: 786px) {
-  .pixel-trail-wrap, .gooey-filter-svg {
+
+  .pixel-trail-wrap,
+  .gooey-filter-svg {
     display: none !important;
   }
 }
@@ -2468,11 +2470,35 @@ h5 {
   width: 90%;
   max-width: 540px;
   max-height: 90vh;
-  overflow-y: auto;
+  overflow-y: hidden !important;
   position: relative;
   transform: translateY(30px) scale(0.95);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  /* Minimal custom scrollbar — Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+/* Minimal custom scrollbar — WebKit (Chrome, Safari, Edge) */
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 16px 0;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  transition: background 0.3s ease;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .modal-overlay.open .modal-content {
